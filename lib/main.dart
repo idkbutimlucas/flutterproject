@@ -1,7 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:iut2021/providers/dio.dart';
 import 'package:iut2021/providers/test_dio.provider.dart';
 
 void main() {
@@ -15,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'flutter test',
       theme: ThemeData(
         // This is the theme of your application.
@@ -28,9 +27,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: ProviderScope(
+      home: const ProviderScope(
         child: TestDio(),
-        ),
+      ),
     );
   }
 }
@@ -41,17 +40,17 @@ class TestDio extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ref
-      .watch(testDioProvider)
-      .map(data: _onData, error: _onError, loading: _onLoading);
+        .watch(testDioProvider)
+        .map(data: _onData, error: _onError, loading: _onLoading);
   }
 
-  Widget _onError(error){
+  Widget _onError(error) {
     return Container(
       color: Colors.red,
     );
   }
 
-  Widget _onLoading(loading){
+  Widget _onLoading(loading) {
     return Container(
       color: Colors.purple,
       child: const Center(
@@ -60,7 +59,7 @@ class TestDio extends ConsumerWidget {
     );
   }
 
-  Widget _onData(data){
+  Widget _onData(data) {
     return Container(
       color: Colors.green,
     );
