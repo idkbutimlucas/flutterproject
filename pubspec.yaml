@@ -36,6 +36,7 @@ dependencies:
   dio: ^4.0.4
   flutter_riverpod: ^1.0.0
   json_annotation: ^4.3.0
+  flappy_search_bar: 1.4.1
 
 dev_dependencies:
   flutter_test:
