@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/providers/test_dio.provider.dart';
 import 'package:iut2021/widgets/routes/home/home.dart';
+<<<<<<< HEAD
 import 'package:iut2021/widgets/routes/listproduct/test.dart';
 import 'package:iut2021/widgets/routes/product_page/product_page.dart';
+=======
+import 'package:iut2021/widgets/routes/listproduct/list_Product.dart';
+import 'package:iut2021/widgets/routes/test/test.dart';
+>>>>>>> 2492d6559b788d7e4c0e290a099200b7f5e1d465
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +36,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const ProviderScope(
-        child: Test(),
+        child: ListProduct(),
       ),
       routes: {
         '/product_page': (context) => const ProductPage(),

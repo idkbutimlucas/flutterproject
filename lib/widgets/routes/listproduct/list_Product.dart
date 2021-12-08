@@ -10,6 +10,23 @@ class ListProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text('Resultats',
+         style: TextStyle(color: Colors.black,
+          fontFamily: 'Fira Sans',
+          fontWeight: FontWeight.bold,
+          fontSize: 32,
+         ),
+        ),
+        leading: const IconButton(
+           icon: Icon(Icons.search),
+           tooltip: 'Rechercher',
+           onPressed: null, color: Colors.black
+      ),
+      ), 
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -31,10 +48,7 @@ class SearchSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      color: Colors.grey,
-      child: DelayedAnimation(delay: 1000,
-      child: FlutterLogo(size: 200,),
-      ),
+
     );
   }
 }
