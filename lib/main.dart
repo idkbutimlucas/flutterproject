@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/providers/test_dio.provider.dart';
 import 'package:iut2021/widgets/routes/home/home.dart';
+import 'package:iut2021/widgets/routes/listproduct/list_Product.dart';
 import 'package:iut2021/widgets/routes/test/test.dart';
 
 void main() {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const ProviderScope(
-        child: Test(),
+        child: ListProduct(),
       ),
     );
   }
