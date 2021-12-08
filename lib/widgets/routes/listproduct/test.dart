@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/models/food.dart';
+import 'package:iut2021/models/products.dart';
 
 import '../../../providers/test_dio.provider.dart';
 
@@ -9,9 +10,11 @@ class Test extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref
-        .watch(testDioProvider)
-        .map(data: _onData, error: _onError, loading: _onLoading);
+    return Scaffold(
+      body: ref
+          .watch(testDioProvider)
+          .map(data: _onData, error: _onError, loading: _onLoading),
+    );
   }
 
   Widget _onError(error) {
@@ -31,14 +34,26 @@ class Test extends ConsumerWidget {
 
   Widget _onData(data) {
     Food f = data.value;
-    return Scaffold(
-        body: ListView.builder(
+    return ListView.builder(
       itemCount: f.products!.length,
       itemBuilder: (context, position) {
-        return Row(
-          children: [Text(f.products![position].name!)],
+        return GestureDetector(
+          onTap: () {
+            Products p = f.products![position];
+            Navigator.pushNamed(context, '/product_page', arguments: p);
+          },
+          child: Row(
+            children: [
+              Text(f.products![position].name!),
+              Image.network(
+                f.products![position].imageUrl!,
+                width: 200,
+                height: 200,
+              )
+            ],
+          ),
         );
       },
-    ));
+    );
   }
 }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/providers/test_dio.provider.dart';
 import 'package:iut2021/widgets/routes/home/home.dart';
-import 'package:iut2021/widgets/routes/test/test.dart';
+import 'package:iut2021/widgets/routes/listproduct/test.dart';
+import 'package:iut2021/widgets/routes/product_page/product_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
       home: const ProviderScope(
         child: Test(),
       ),
+      routes: {
+        '/product_page': (context) => const ProductPage(),
+      },
     );
   }
 }
