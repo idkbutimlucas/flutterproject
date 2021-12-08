@@ -31,13 +31,14 @@ class Test extends ConsumerWidget {
 
   Widget _onData(data) {
     Food f = data.value;
-    return ListView.builder(
+    return Scaffold(
+        body: ListView.builder(
       itemCount: f.products!.length,
       itemBuilder: (context, position) {
         return Row(
-          children: [Text(f.products![position!].name!)],
+          children: [Text(f.products![position].name!)],
         );
       },
-    );
+    ));
   }
 }
