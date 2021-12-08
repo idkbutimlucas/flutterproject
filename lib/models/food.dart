@@ -1,3 +1,4 @@
+import 'package:iut2021/models/products.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'food.g.dart';
@@ -8,11 +9,14 @@ part 'food.g.dart';
 @JsonSerializable()
 class Food {
   final int? count;
+  final List<Products>? products;
 
-  Food(this.count,);
+  Food(
+    this.count,
+    this.products,
+  );
 
   factory Food.fromJson(Map<String, dynamic> json) => _$FoodFromJson(json);
 
   Map<String, dynamic> toJson() => _$FoodToJson(this);
-
 }
