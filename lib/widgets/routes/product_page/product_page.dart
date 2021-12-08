@@ -15,9 +15,25 @@ class _ProductPageState extends State<ProductPage> {
     final args = ModalRoute.of(context)!.settings.arguments as Products;
     return Scaffold(
       body: Center(
-        child: Column(
-          children: [Text(args.ingredients![0].text!)],
-        ),
+        child: Column(children: <Widget>[
+          Text("ggg" + args.ingredients![0].id!),
+          Expanded(
+            child: ListView.builder(
+              itemCount: args.ingredients!.length,
+              itemBuilder: (context, position) {
+                return Row(
+                  children: <Widget>[
+                    Text(args.ingredients![position].id!),
+                    Text(args.ingredients![position].text!),
+                    Text(args.ingredients![position].percent!.toString()),
+                    Text(args.ingredients![position].vegan!),
+                    Text(args.ingredients![position].vegetarian!),
+                  ],
+                );
+              },
+            ),
+          )
+        ]),
       ),
     );
   }
