@@ -5,13 +5,36 @@ import 'package:iut2021/models/products.dart';
 
 import '../../../providers/test_dio.provider.dart';
 
-class Test extends ConsumerWidget {
-  const Test({Key? key}) : super(key: key);
+class ProductListPage extends ConsumerWidget {
+  const ProductListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: ref
+
+
+  //----------------------------------------------------------------------
+      // la APPBAR
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text('Resultats',
+         style: TextStyle(color: Colors.black,
+          fontFamily: 'FiraSans',
+          fontWeight: FontWeight.bold,
+          fontSize: 32,
+         ),
+        ),
+        leading: const IconButton(alignment: Alignment.centerRight,
+           icon: Icon(Icons.arrow_back_ios),
+           tooltip: 'Retour',
+           onPressed: null, color: Colors.black
+      ),
+      ), 
+
+
+  // ---------------------------------------------------------------------
+      // Le corps de l'appli
+         body: ref
           .watch(testDioProvider)
           .map(data: _onData, error: _onError, loading: _onLoading),
     );
