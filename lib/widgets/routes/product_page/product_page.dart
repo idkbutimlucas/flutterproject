@@ -23,7 +23,6 @@ class _ProductPageState extends State<ProductPage> {
             height: 200,
           ),
           Text("ggg" + args.name!.toString()),
-          Text(args.nutriscore!.toString()),
           Expanded(
             child: ListView.builder(
               itemCount: args.ingredients!.length,
@@ -32,23 +31,38 @@ class _ProductPageState extends State<ProductPage> {
               },
             ),
           ),
-          //const Nutriscore(nutriscore: args.nutriscore),
+          Nutriscore(nutriscore: args.nutriscore!),
         ]),
       ),
     );
   }
 }
 
-/*class Nutriscore extends StatelessWidget {
+class Nutriscore extends StatelessWidget {
   const Nutriscore({Key? key, required this.nutriscore}) : super(key: key);
 
   final String nutriscore;
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Nutriscore");
+    if (nutriscore == "a") {
+      return Image.asset('assets/img/nutriscoreA.png');
+    }
+    if (nutriscore == "b") {
+      return Image.asset('assets/img/nutriscoreB.png');
+    }
+    if (nutriscore == "c") {
+      return Image.asset('assets/img/nutriscoreC.png');
+    }
+    if (nutriscore == "d") {
+      return Image.asset('assets/img/nutriscoreD.png');
+    }
+    if (nutriscore == "e") {
+      return Image.asset('assets/img/nutriscoreE.png');
+    }
+    return Image.asset('assets/img/nutriscoreE.png');
   }
-}*/
+}
 
 class IngredientRow extends StatelessWidget {
   const IngredientRow({Key? key, required this.ingredient}) : super(key: key);
