@@ -73,13 +73,18 @@ class ProductListPage extends ConsumerWidget {
             Navigator.pushNamed(context, '/product_page', arguments: p);
           },
           child: Container(
-            width: 100,
+            width: 80,
             height: 250,
             alignment: Alignment.center,
             padding: EdgeInsets.all(20),
             margin: EdgeInsets.all(20),            
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 235, 232, 232),
+            decoration: new BoxDecoration(
+              color: Colors.white,
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Color.fromARGB(126, 0, 0, 0),
+                  offset: Offset(0.5, 0.5),
+                  blurRadius: 30.0,)],
               borderRadius: BorderRadius.circular(10)),
               
 
@@ -87,24 +92,27 @@ class ProductListPage extends ConsumerWidget {
           // Affichage pour un produit
             
               child: Row(
-                children: [Column(children: [Text(
+                
+                children: [Expanded(
+                   child: Column(
+                     children: [Text(
+                      f.products![position].name!,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Color.fromARGB(255, 40, 39, 39),
+                      fontFamily: 'FiraSans',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16)
+                      ),
 
-                  f.products![position].name!,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Color.fromARGB(255, 40, 39, 39),
-                  fontFamily: 'FiraSans',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18)
-                  ),
-
-                  Image.network(
-                    f.products![position].imageUrl!,
-                    width: 100,
-                    height: 150,
-                    alignment: Alignment.bottomCenter,
-                  ),
+                    Image.network(
+                      f.products![position].imageUrl!,
+                      width: 200,
+                      height: 170,
+                      alignment: Alignment.center,
+                    ),
                 ]  
-                ),]
+                ),
+                )]
               
           ),
         ),
