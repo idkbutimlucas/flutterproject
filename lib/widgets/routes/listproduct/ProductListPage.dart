@@ -17,20 +17,23 @@ class ProductListPage extends ConsumerWidget {
       // la APPBAR
       appBar: AppBar(
         backgroundColor: Colors.white,
+
+        // titre de la page 
         title: const Text('Resultats',
          style: TextStyle(color: Colors.black,
           fontFamily: 'FiraSans',
           fontWeight: FontWeight.bold,
-          fontSize: 32,
-         ),
+          fontSize: 32, 
+         ),textAlign: TextAlign.center,
         ),
+
+        // Incos de Retour
         leading: const IconButton(alignment: Alignment.centerRight,
            icon: Icon(Icons.arrow_back_ios),
            tooltip: 'Retour',
            onPressed: null, color: Colors.black
-      ),
+        ),
       ), 
-
 
   // ---------------------------------------------------------------------
       // Le corps de l'appli
@@ -55,6 +58,10 @@ class ProductListPage extends ConsumerWidget {
     );
   }
 
+
+
+  // ------------------------------------------------------------------------
+  // La liste des ingrédients 
   Widget _onData(data) {
     Food f = data.value;
     return ListView.builder(
@@ -65,16 +72,21 @@ class ProductListPage extends ConsumerWidget {
             Products p = f.products![position];
             Navigator.pushNamed(context, '/product_page', arguments: p);
           },
-          child: Row(
-            children: [
-              Text(f.products![position].name!),
-              Image.network(
-                f.products![position].imageUrl!,
-                width: 200,
-                height: 200,
-              )
-            ],
-          ),
+
+          //-------------------------------------
+          // Affichage pour un produit
+            child: Row(
+              
+              children: [
+                Text(f.products![position].name!),
+                Image.network(
+                  f.products![position].imageUrl!,
+                  width: 200,
+                  height: 200,
+                
+                )
+              ],
+            ),
         );
       },
     );
