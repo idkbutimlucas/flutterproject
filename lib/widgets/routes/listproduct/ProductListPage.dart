@@ -75,13 +75,13 @@ class ProductListPage extends ConsumerWidget {
 
           child: Container(
             width: 100,
-            height: 350,
+            height: 250,
             alignment: Alignment.center,
             padding: EdgeInsets.all(20),
             margin: EdgeInsets.all(20),
             
             decoration: BoxDecoration(
-              color: Color.fromARGB(179, 196, 188, 188),
+              color: Color.fromARGB(255, 235, 232, 232),
               borderRadius: BorderRadius.circular(10)),
               
 
@@ -90,29 +90,25 @@ class ProductListPage extends ConsumerWidget {
             
               child: Row(
                 children: [Column(children: [Text(
+
                   f.products![position].name!,
                   textAlign: TextAlign.center,
+                  style: TextStyle(color: Color.fromARGB(255, 40, 39, 39),
+                  fontFamily: 'FiraSans',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18)
                   ),
 
                   Image.network(
                     f.products![position].imageUrl!,
-                    width: 200,
-                    height: 250,
+                    width: 100,
+                    height: 150,
                     alignment: Alignment.bottomCenter,
                   ),
-                ]
-              
-             
-                  
-                
+                ]  
                 ),]
               
           ),
-
-          //-------------------------------------
-          // Affichage pour un produit
-          
-        
         ),
         );
         
