@@ -17,7 +17,13 @@ class _ProductPageState extends State<ProductPage> {
     return Scaffold(
       body: Center(
         child: Column(children: <Widget>[
-          Text("ggg" + args.ingredients![0].id!),
+          Image.network(
+            args.imageUrl!,
+            width: 200,
+            height: 200,
+          ),
+          Text("ggg" + args.name!.toString()),
+          Text(args.nutriscore!.toString()),
           Expanded(
             child: ListView.builder(
               itemCount: args.ingredients!.length,
@@ -25,12 +31,24 @@ class _ProductPageState extends State<ProductPage> {
                 return IngredientRow(ingredient: args.ingredients![position]);
               },
             ),
-          )
+          ),
+          //const Nutriscore(nutriscore: args.nutriscore),
         ]),
       ),
     );
   }
 }
+
+/*class Nutriscore extends StatelessWidget {
+  const Nutriscore({Key? key, required this.nutriscore}) : super(key: key);
+
+  final String nutriscore;
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text("Nutriscore");
+  }
+}*/
 
 class IngredientRow extends StatelessWidget {
   const IngredientRow({Key? key, required this.ingredient}) : super(key: key);
