@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const ProviderScope(
-        child: ProductListPage(),
+        child: Home(),
       ),
       routes: {
         '/product_page': (context) => const ProductPage(),

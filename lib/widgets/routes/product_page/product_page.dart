@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iut2021/models/ingredients.dart';
 import 'package:iut2021/models/products.dart';
 
 class ProductPage extends StatefulWidget {
@@ -15,10 +16,36 @@ class _ProductPageState extends State<ProductPage> {
     final args = ModalRoute.of(context)!.settings.arguments as Products;
     return Scaffold(
       body: Center(
-        child: Column(
-          children: [Text(args.ingredients![0].text!)],
-        ),
+        child: Column(children: <Widget>[
+          Text("ggg" + args.ingredients![0].id!),
+          Expanded(
+            child: ListView.builder(
+              itemCount: args.ingredients!.length,
+              itemBuilder: (context, position) {
+                return IngredientRow(ingredient: args.ingredients![position]);
+              },
+            ),
+          )
+        ]),
       ),
+    );
+  }
+}
+
+class IngredientRow extends StatelessWidget {
+  const IngredientRow({Key? key, required this.ingredient}) : super(key: key);
+
+  final Ingredients ingredient;
+
+  @override
+  Widget build(BuildContext context) {
+    final elements = <Widget>[];
+    if (ingredient.id != null) {
+      elements.add(Text(ingredient.id.toString()));
+    }
+
+    return Row(
+      children: elements,
     );
   }
 }
