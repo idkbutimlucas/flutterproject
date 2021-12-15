@@ -85,7 +85,6 @@ class ProductListPage extends ConsumerWidget {
 
             //-------------------------------------
             // Affichage pour un produit
-
             child: Row(children: [
               Column(children: [
                 Text(
@@ -100,9 +99,6 @@ class ProductListPage extends ConsumerWidget {
                 ),
               ]),
             ]),
-
-            //-------------------------------------
-            // Affichage pour un produit
           ),
         );
       },
