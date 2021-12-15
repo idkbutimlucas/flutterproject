@@ -85,20 +85,20 @@ class ProductListPage extends ConsumerWidget {
 
             //-------------------------------------
             // Affichage pour un produit
-
-            child: Column(children: [
-              Row(children: [
-                Text(f.products![position].name!),
+            child: Row(children: [
+              Column(children: [
+                Text(
+                  f.products![position].name!,
+                  textAlign: TextAlign.center,
+                ),
                 Image.network(
                   f.products![position].imageUrl!,
                   width: 200,
-                  height: 200,
+                  height: 250,
+                  alignment: Alignment.bottomCenter,
                 ),
-              ])
+              ]),
             ]),
-
-            //-------------------------------------
-            // Affichage pour un produit
           ),
         );
       },
