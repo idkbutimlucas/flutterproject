@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/models/food.dart';
 import 'package:iut2021/providers/dio.dart';
 
-final testDioProvider = FutureProvider<Food?>((ref) async {
+final searchDioProvider = FutureProvider<Food?>((ref) async {
   final Dio dio = ref.read(dioProvider);
   try {
     final Response response = await dio.get(

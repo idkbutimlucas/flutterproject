@@ -40,7 +40,7 @@ class ProductListPage extends ConsumerWidget {
       // ---------------------------------------------------------------------
       // Le corps de l'appli
       body: ref
-          .watch(testDioProvider)
+          .watch(searchDioProvider)
           .map(data: _onData, error: _onError, loading: _onLoading),
     );
   }

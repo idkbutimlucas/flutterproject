@@ -46,7 +46,7 @@ class TestDio extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ref
-        .watch(testDioProvider)
+        .watch(searchDioProvider)
         .map(data: _onData, error: _onError, loading: _onLoading);
   }
 
