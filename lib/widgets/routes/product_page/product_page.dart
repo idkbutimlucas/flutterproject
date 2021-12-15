@@ -22,8 +22,8 @@ class _ProductPageState extends State<ProductPage> {
             width: 200,
             height: 200,
           ),
-          Text("ggg" + args.name!),
-          //Text(args.nutriscore!),
+          Text("ggg" + args.name!.toString()),
+          Text(args.nutriscore!.toString()),
           Expanded(
             child: ListView.builder(
               itemCount: args.ingredients!.length,
