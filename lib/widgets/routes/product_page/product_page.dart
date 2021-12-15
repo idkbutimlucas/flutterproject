@@ -17,7 +17,12 @@ class _ProductPageState extends State<ProductPage> {
     return Scaffold(
       body: Center(
         child: Column(children: <Widget>[
-          Text("ggg" + args.ingredients![0].id!),
+          Image.network(
+            args.imageUrl!,
+            width: 200,
+            height: 200,
+          ),
+          Text("ggg" + args.name!),
           Expanded(
             child: ListView.builder(
               itemCount: args.ingredients!.length,
@@ -25,10 +30,15 @@ class _ProductPageState extends State<ProductPage> {
                 return IngredientRow(ingredient: args.ingredients![position]);
               },
             ),
-          )
+          ),
+          Nutriscore(),
         ]),
       ),
     );
+  }
+
+  Widget Nutriscore() {
+    return const Text("Nutriscore");
   }
 }
 
@@ -43,16 +53,16 @@ class IngredientRow extends StatelessWidget {
     if (ingredient.id != null) {
       elements.add(Text(ingredient.id.toString()));
     }
-    if (ingredient.id != null) {
+    if (ingredient.percent != null) {
       elements.add(Text(ingredient.percent.toString()));
     }
-    if (ingredient.id != null) {
+    if (ingredient.text != null) {
       elements.add(Text(ingredient.text.toString()));
     }
-    if (ingredient.id != null) {
+    if (ingredient.vegan != null) {
       elements.add(Text(ingredient.vegan.toString()));
     }
-    if (ingredient.id != null) {
+    if (ingredient.vegetarian != null) {
       elements.add(Text(ingredient.vegetarian.toString()));
     }
     return Row(
