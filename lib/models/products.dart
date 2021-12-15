@@ -41,7 +41,7 @@ class Products {
   String? labels;
 
   // Le nutri-score du produit :
-  @JsonKey(name: "nutriscore_grade_fr")
+  @JsonKey(name: "nutriscore_grade")
   String? nutriscore;
 
   // Origine du produit
