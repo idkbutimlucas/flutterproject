@@ -72,23 +72,28 @@ class IngredientRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final elements = <Widget>[];
-    if (ingredient.id != null) {
-      elements.add(Text(ingredient.id.toString()));
+    if (ingredient.text != null) {
+      elements.add(Text("Ingrédient: " + ingredient.text.toString()));
     }
     if (ingredient.percent != null) {
-      elements.add(Text(ingredient.percent.toString()));
-    }
-    if (ingredient.text != null) {
-      elements.add(Text(ingredient.text.toString()));
+      elements.add(
+          Text("Empreinte carbone: " + ingredient.percent.toString() + "%"));
     }
     if (ingredient.vegan != null) {
-      elements.add(Text(ingredient.vegan.toString()));
+      elements.add(const Text("Ingrédient vegan"));
     }
     if (ingredient.vegetarian != null) {
-      elements.add(Text(ingredient.vegetarian.toString()));
+      elements.add(const Text("Ingrédient végétarien"));
     }
     return Row(
-      children: elements,
+      children: [
+        Container(
+          color: Colors.red,
+          child: Column(
+            children: elements,
+          ),
+        )
+      ],
     );
   }
 }
