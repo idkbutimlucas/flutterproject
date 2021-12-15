@@ -23,6 +23,7 @@ class _ProductPageState extends State<ProductPage> {
             height: 200,
           ),
           Text("ggg" + args.name!),
+          //Text(args.nutriscore!),
           Expanded(
             child: ListView.builder(
               itemCount: args.ingredients!.length,
@@ -31,14 +32,14 @@ class _ProductPageState extends State<ProductPage> {
               },
             ),
           ),
-          const Nutriscore(nutriscore: args.nutriscore),
+          //const Nutriscore(nutriscore: args.nutriscore),
         ]),
       ),
     );
   }
 }
 
-class Nutriscore extends StatelessWidget {
+/*class Nutriscore extends StatelessWidget {
   const Nutriscore({Key? key, required this.nutriscore}) : super(key: key);
 
   final String nutriscore;
@@ -47,7 +48,7 @@ class Nutriscore extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Text("Nutriscore");
   }
-}
+}*/
 
 class IngredientRow extends StatelessWidget {
   const IngredientRow({Key? key, required this.ingredient}) : super(key: key);

@@ -36,7 +36,6 @@ dependencies:
   dio: ^4.0.4
   flutter_riverpod: ^1.0.0
   json_annotation: ^4.3.0
-  
 
 dev_dependencies:
   flutter_test:
@@ -79,9 +78,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: FiraSans
-       fonts:
-          - asset: assets/FiraSans-Bold.ttf
+    - family: FiraSans
+      fonts:
+        - asset: assets/fonts/FiraSans-Bold.ttf
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
