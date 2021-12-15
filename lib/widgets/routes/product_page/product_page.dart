@@ -43,16 +43,16 @@ class IngredientRow extends StatelessWidget {
     if (ingredient.id != null) {
       elements.add(Text(ingredient.id.toString()));
     }
-    if (ingredient.id != null) {
+    if (ingredient.percent != null) {
       elements.add(Text(ingredient.percent.toString()));
     }
-    if (ingredient.id != null) {
+    if (ingredient.text != null) {
       elements.add(Text(ingredient.text.toString()));
     }
-    if (ingredient.id != null) {
+    if (ingredient.vegan != null) {
       elements.add(Text(ingredient.vegan.toString()));
     }
-    if (ingredient.id != null) {
+    if (ingredient.vegetarian != null) {
       elements.add(Text(ingredient.vegetarian.toString()));
     }
     return Row(
