@@ -31,13 +31,20 @@ class _ProductPageState extends State<ProductPage> {
               },
             ),
           ),
-          Nutriscore(),
+          const Nutriscore(nutriscore: args.nutriscore),
         ]),
       ),
     );
   }
+}
 
-  Widget Nutriscore() {
+class Nutriscore extends StatelessWidget {
+  const Nutriscore({Key? key, required this.nutriscore}) : super(key: key);
+
+  final String nutriscore;
+
+  @override
+  Widget build(BuildContext context) {
     return const Text("Nutriscore");
   }
 }
