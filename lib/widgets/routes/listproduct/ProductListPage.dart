@@ -73,22 +73,48 @@ class ProductListPage extends ConsumerWidget {
             Navigator.pushNamed(context, '/product_page', arguments: p);
           },
 
+          child: Container(
+            width: 100,
+            height: 350,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(20),
+            margin: EdgeInsets.all(20),
+            
+            decoration: BoxDecoration(
+              color: Color.fromARGB(179, 196, 188, 188),
+              borderRadius: BorderRadius.circular(10)),
+              
+
           //-------------------------------------
           // Affichage pour un produit
-            child: Row(
+            
+            child: Column(
+              children: [Row(
+                children: [Text(
+                  f.products![position].name!),
+                  Image.network(
+                    f.products![position].imageUrl!,
+                    width: 200,
+                    height: 200,
+                  ),
+                ]
               
-              children: [
-                Text(f.products![position].name!),
-                Image.network(
-                  f.products![position].imageUrl!,
-                  width: 200,
-                  height: 200,
+             
+                  
                 
-                )
-              ],
-            ),
+                )]
+              
+          ),
+
+          //-------------------------------------
+          // Affichage pour un produit
+          
+        ),
         );
+        
       },
     );
   }
 }
+
+
