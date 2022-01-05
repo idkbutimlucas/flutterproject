@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iut2021/providers/state_provider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,10 +14,10 @@ class _HomeState extends State<Home> {
   String additif = "indiférent";
   String palme = "indiférent";
 
+  final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-
     return Scaffold(
         appBar: AppBar(
           title: const Text("Food Search"),
@@ -30,8 +32,9 @@ class _HomeState extends State<Home> {
                   textAlign: TextAlign.center,
                   style: TextStyle(height: 2, fontSize: 25),
                 ),
-                const TextField(
-                  decoration: InputDecoration(
+                TextField(
+                  controller: myController,
+                  decoration: const InputDecoration(
                     labelText: 'Nom du Produit',
                     hintText: 'Entrez le nom du Produit',
                     icon: Icon(Icons.no_food),
@@ -170,17 +173,24 @@ class _HomeState extends State<Home> {
                     )
                   ],
                 )),
-                ElevatedButton(
-                    onPressed: () {
-                      if (_dropdownFormKey.currentState!.validate()) {
-                        //valid flow
-                      }
-                    },
-                    child: const Text(
-                      "Recherchez",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(height: 1, fontSize: 20),
-                    ))
+                Consumer(
+                  builder: (context, ref, child) {
+                    return ElevatedButton(
+                        onPressed: () {
+                          //if (_dropdownFormKey.currentState.validate()) {
+                          ref.read(searchStateProvider.notifier).changeSearch(
+                              myController.text, nutriscore, additif, palme);
+
+                          Navigator.pushNamed(context, '/listproduct');
+                          //}
+                        },
+                        child: const Text(
+                          "Recherchez",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(height: 1, fontSize: 20),
+                        ));
+                  },
+                )
               ]),
         ));
   }
@@ -204,8 +214,8 @@ class _HomeState extends State<Home> {
   }
 }
 
-// ignore: camel_case_types
+/*// ignore: camel_case_types
 class _dropdownFormKey {
   // ignore: prefer_typing_uninitialized_variables
   static var currentState;
-}
+}*/

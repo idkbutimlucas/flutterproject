@@ -7,7 +7,7 @@ import 'package:iut2021/widgets/routes/product_page/product_page.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -32,10 +32,11 @@ class MyApp extends StatelessWidget {
         primarySwatch:  Palette.white,
       ),
       home: const ProviderScope(
-        child: ProductListPage(),
+        child: Home(),
       ),
       routes: {
         '/product_page': (context) => const ProductPage(),
+        '/listproduct': (context) => const ProductListPage()
       },
     );
   }
@@ -76,7 +77,6 @@ class TestDio extends ConsumerWidget {
   }
 
   Widget _onError(error) {
-    print(error.toString());
     return Container(
       color: Colors.red,
     );
