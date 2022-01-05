@@ -20,7 +20,15 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Food Search"),
+          title: const Text(
+            "Food Search",
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'FiraSans',
+              fontWeight: FontWeight.bold,
+              fontSize: 32,
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -28,26 +36,42 @@ class _HomeState extends State<Home> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const Text(
-                  "Recherchez",
+                  "Recherche : ",
                   textAlign: TextAlign.center,
-                  style: TextStyle(height: 2, fontSize: 25),
+                  style: TextStyle(
+                    height: 2,
+                    fontSize: 25,
+                    fontFamily: 'FiraSans',
+                  ),
                 ),
                 TextField(
                   controller: myController,
+                  cursorColor: Colors.black,
                   decoration: const InputDecoration(
-                    labelText: 'Nom du Produit',
-                    hintText: 'Entrez le nom du Produit',
-                    icon: Icon(Icons.no_food),
-                  ),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      labelText: 'Nom du Produit',
+                      hintText: 'Entrez le nom du Produit',
+                      icon: Icon(Icons.no_food, color: Colors.black),
+                      labelStyle: TextStyle(color: const Color(0xFF424242))),
                   keyboardType: TextInputType.text,
                 ),
+                SizedBox(height: 20),
                 Card(
                     child: Column(
                   children: [
                     const Text(
                       'Nutri-Score',
                       textAlign: TextAlign.left,
-                      style: TextStyle(height: 2, fontSize: 18),
+                      style: TextStyle(
+                        height: 2,
+                        fontSize: 18,
+                        fontFamily: 'FiraSans',
+                      ),
                     ),
                     Row(
                       children: [
@@ -101,7 +125,11 @@ class _HomeState extends State<Home> {
                 const Text(
                   "Ingrédients",
                   textAlign: TextAlign.left,
-                  style: TextStyle(height: 3, fontSize: 20),
+                  style: TextStyle(
+                    height: 3,
+                    fontSize: 20,
+                    fontFamily: 'FiraSans',
+                  ),
                 ),
                 Card(
                     child: Column(
@@ -109,7 +137,11 @@ class _HomeState extends State<Home> {
                     const Text(
                       'Aditiffs',
                       textAlign: TextAlign.left,
-                      style: TextStyle(height: 2, fontSize: 18),
+                      style: TextStyle(
+                        height: 2,
+                        fontSize: 18,
+                        fontFamily: 'FiraSans',
+                      ),
                     ),
                     Row(
                       children: [
@@ -144,7 +176,11 @@ class _HomeState extends State<Home> {
                     const Text(
                       'Huile de palme',
                       textAlign: TextAlign.left,
-                      style: TextStyle(height: 2, fontSize: 18),
+                      style: TextStyle(
+                        height: 2,
+                        fontSize: 18,
+                        fontFamily: 'FiraSans',
+                      ),
                     ),
                     Row(
                       children: [
@@ -173,23 +209,44 @@ class _HomeState extends State<Home> {
                     )
                   ],
                 )),
-                Consumer(
-                  builder: (context, ref, child) {
-                    return ElevatedButton(
-                        onPressed: () {
-                          //if (_dropdownFormKey.currentState.validate()) {
-                          ref.read(searchStateProvider.notifier).changeSearch(
-                              myController.text, nutriscore, additif, palme);
+                SizedBox(height: 50),
+                Center(
+                  child: Consumer(
+                    child: Padding(
+                      padding: EdgeInsets.all(16.0),
+                    ),
+                    builder: (context, ref, child) {
+                      return ElevatedButton(
+                          style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                EdgeInsets.all(15.0)),
+                            backgroundColor:
+                                MaterialStateProperty.resolveWith<Color>(
+                              (Set<MaterialState> states) {
+                                return Colors.black;
+                              },
+                            ),
+                          ),
+                          onPressed: () {
+                            //if (_dropdownFormKey.currentState.validate()) {
+                            ref.read(searchStateProvider.notifier).changeSearch(
+                                myController.text, nutriscore, additif, palme);
 
-                          Navigator.pushNamed(context, '/listproduct');
-                          //}
-                        },
-                        child: const Text(
-                          "Recherchez",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(height: 1, fontSize: 20),
-                        ));
-                  },
+                            Navigator.pushNamed(context, '/listproduct');
+                            //}
+                          },
+                          child: const Text(
+                            "Rechercher",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              height: 1,
+                              fontSize: 20,
+                              fontFamily: 'FiraSans',
+                              color: Colors.white,
+                            ),
+                          ));
+                    },
+                  ),
                 )
               ]),
         ));

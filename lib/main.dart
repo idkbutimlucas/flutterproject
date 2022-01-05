@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'flutter test',
+      title: 'flutter',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -60,8 +60,8 @@ class Palette {
 
 // -----------------------------------------------------------------------------------
 
-class TestDio extends ConsumerWidget {
-  const TestDio({Key? key}) : super(key: key);
+class Dio extends ConsumerWidget {
+  const Dio({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
