@@ -36,6 +36,7 @@ final searchDioProvider = FutureProvider<Food?>((ref) async {
 
   String url = "";
 
+  // ignore: unnecessary_null_comparison
   if (nutriscore != null) {
     url = urlWithNutriscore;
   } else {
