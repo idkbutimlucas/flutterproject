@@ -14,7 +14,7 @@ class ProductListPage extends ConsumerWidget {
       //----------------------------------------------------------------------
       // la APPBAR
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        actionsIconTheme: IconThemeData(color: Colors.red),
 
         // titre de la page
         title: const Text(
@@ -27,14 +27,6 @@ class ProductListPage extends ConsumerWidget {
           ),
           textAlign: TextAlign.center,
         ),
-
-        // Incos de Retour
-        leading: const IconButton(
-            alignment: Alignment.centerRight,
-            icon: Icon(Icons.arrow_back_ios),
-            tooltip: 'Retour',
-            onPressed: null,
-            color: Colors.black),
       ),
 
       // ---------------------------------------------------------------------

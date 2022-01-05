@@ -15,6 +15,19 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Products;
     return Scaffold(
+      appBar: AppBar(
+        // titre de la page
+        title: const Text(
+          'Resultats',
+          style: TextStyle(
+            color: Colors.black,
+            fontFamily: 'FiraSans',
+            fontWeight: FontWeight.bold,
+            fontSize: 32,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ),
       body: Center(
         child: Column(children: <Widget>[
           Image.network(
