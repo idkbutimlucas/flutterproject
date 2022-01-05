@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/models/food.dart';
@@ -68,7 +66,7 @@ class ProductListPage extends ConsumerWidget {
           },
           child: Container(
             width: 80,
-            height: 258,
+            height: 270,
             alignment: Alignment.center,
             padding: EdgeInsets.all(20),
             margin: EdgeInsets.all(20),
@@ -83,14 +81,14 @@ class ProductListPage extends ConsumerWidget {
                 ],
                 borderRadius: BorderRadius.circular(10)),
 
-        //-------------------------------------
-        // Affichage pour un produit
+            //-------------------------------------
+            // Affichage pour un produit
 
             child: Row(children: [
               Expanded(
                 child: Column(children: [
-                  
                   // Titre de l'article
+
                   Text(f.products![position].name!,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -99,24 +97,26 @@ class ProductListPage extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                         ),
-    
+
                  // Image de l'article
-                ClipRRect( 
-                    borderRadius: BorderRadius.circular(8.0),     
+                Padding(padding: EdgeInsets.all(9.0),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(
                       f.products![position].imageUrl!,
                       width: 200,
-                      height: 158,
+                      height: 155,
                       alignment: Alignment.center,
-                      fit: BoxFit.cover, 
-                   )
+                      fit: BoxFit.cover,
+                   ),
                   ),
-                ]),
-              )
+                ),
+              ]),
+            ),
           ]),
-        ),
-      );
-    },
-  );
- }
+          )
+        );
+      },
+    );
+  }
 }

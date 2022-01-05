@@ -1,6 +1,3 @@
-import 'dart:html';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iut2021/models/ingredients.dart';
 import 'package:iut2021/models/products.dart';

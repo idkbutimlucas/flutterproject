@@ -5,7 +5,6 @@ import 'package:iut2021/widgets/routes/home/home.dart';
 import 'package:iut2021/widgets/routes/listproduct/ProductListPage.dart';
 import 'package:iut2021/widgets/routes/product_page/product_page.dart';
 
-
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch:  Palette.white,
+        primarySwatch: Palette.white,
       ),
       home: const ProviderScope(
         child: Home(),
@@ -44,11 +43,9 @@ class MyApp extends StatelessWidget {
 
 // ---------------------------------------------------------------------------------
 // Classe de la couleur de l'AppBar
-class Palette { 
-  static const MaterialColor white =  MaterialColor( 
-    0xFFFFFFFF,
-   <int, Color>{
-    50:  Color(0xFFFFFFFF),
+class Palette {
+  static const MaterialColor white = MaterialColor(0xFFFFFFFF, <int, Color>{
+    50: Color(0xFFFFFFFF),
     100: Color(0xFFFFFFFF),
     200: Color(0xFFFFFFFF),
     300: Color(0xFFFFFFFF),
@@ -58,13 +55,10 @@ class Palette {
     700: Color(0xFFFFFFFF),
     800: Color(0xFFFFFFFF),
     900: Color(0xFFFFFFFF),
-  }
-  );
+  });
 }
 
 // -----------------------------------------------------------------------------------
-
-
 
 class TestDio extends ConsumerWidget {
   const TestDio({Key? key}) : super(key: key);
@@ -84,7 +78,7 @@ class TestDio extends ConsumerWidget {
 
   Widget _onLoading(loading) {
     return Container(
-      color: Colors.purple,
+      color: Colors.white,
       child: const Center(
         child: CircularProgressIndicator(),
       ),
