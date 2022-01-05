@@ -85,7 +85,7 @@ class ProductListPage extends ConsumerWidget {
             // Affichage pour un produit
 
             child: Row(children: [
-              Expanded( 
+              Expanded(
                 child: Column(children: [
                   // Titre de l'article
 
@@ -97,22 +97,21 @@ class ProductListPage extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                         ),
-    
+
                  // Image de l'article
                 Padding(padding: EdgeInsets.all(9.0),
-                child: ClipRRect( 
-                    borderRadius: BorderRadius.circular(8.0),     
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(
                       f.products![position].imageUrl!,
                       width: 200,
                       height: 155,
                       alignment: Alignment.center,
-                      fit: BoxFit.cover, 
+                      fit: BoxFit.cover,
                    )
                   ),
-                  ),
                 ]),
- 
+
               )
             ]),
           ),
