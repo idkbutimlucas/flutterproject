@@ -47,18 +47,35 @@ class _ProductPageState extends State<ProductPage> {
             style: const TextStyle(fontFamily: 'FiraSans', fontSize: 18),
           ),
           Store(store: args.stores!),
-          Expanded(
-            child: ListView.builder(
-              itemCount: args.ingredients!.length,
-              itemBuilder: (context, position) {
-                return IngredientRow(ingredient: args.ingredients![position]);
-              },
-            ),
-          ),
+          Expanded(child: ShowIngredient(ingredient: args.ingredients)),
           Nutriscore(nutriscore: args.nutriscore!),
         ]),
       ),
     );
+  }
+}
+
+class ShowIngredient extends StatelessWidget {
+  const ShowIngredient({Key? key, required this.ingredient}) : super(key: key);
+
+  final List<Ingredients>? ingredient;
+
+  @override
+  Widget build(BuildContext context) {
+    final elements = <Widget>[];
+    if (ingredient != null) {
+      elements.add(
+        Expanded(
+          child: ListView.builder(
+            itemCount: ingredient!.length,
+            itemBuilder: (context, position) {
+              return IngredientRow(ingredient: ingredient![position]);
+            },
+          ),
+        ),
+      );
+    }
+    return Column(children: elements);
   }
 }
 
@@ -139,8 +156,8 @@ class IngredientRow extends StatelessWidget {
       elements.add(Text("Ingrédient: " + ingredient.text.toString()));
     }
     if (ingredient.percent != null) {
-      elements.add(
-          Text("Empreinte carbone: " + ingredient.percent.toString() + "%"));
+      elements
+          .add(Text("Empreinte carbone: " + Round(ingredient.percent) + "%"));
     }
     if (ingredient.vegan != null && ingredient.vegetarian != null) {
       elements.add(Column(children: const [
@@ -167,5 +184,17 @@ class IngredientRow extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String Round(Object? percent) {
+    print(percent.runtimeType);
+    if (percent.runtimeType == double) {
+      return (percent as double).toStringAsFixed(2);
+    }
+    if (percent.runtimeType == int) {
+      return percent.toString();
+    }
+
+    return percent.toString();
   }
 }
