@@ -88,25 +88,6 @@ class ProductListPage extends ConsumerWidget {
               Expanded(
                 child: Column(children: [
                   // Titre de l'article
-<<<<<<< HEAD
-                  Text(
-                    f.products![position].name!,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 40, 39, 39),
-                        fontFamily: 'FiraSans',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
-                  ),
-
-                  // Image de l'article
-                  Image.network(
-                    f.products![position].imageUrl!,
-                    width: 200,
-                    height: 158,
-                    alignment: Alignment.center,
-                    fit: BoxFit.cover,
-=======
                   Text(f.products![position].name!,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -126,7 +107,6 @@ class ProductListPage extends ConsumerWidget {
                       alignment: Alignment.center,
                       fit: BoxFit.cover, 
                    )
->>>>>>> 0133c8956a389fc590c464a1ccd4854b0e14bfa5
                   ),
                 ]),
               )
