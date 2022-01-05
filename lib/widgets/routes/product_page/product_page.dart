@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iut2021/models/ingredients.dart';
@@ -59,21 +61,45 @@ class Nutriscore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (nutriscore == "a") {
-      return Image.asset('assets/img/nutriscoreA.png');
+      return Image.asset(
+        'assets/img/nutriscoreA.png',
+        height: 150,
+        width: 150,
+      );
     }
     if (nutriscore == "b") {
-      return Image.asset('assets/img/nutriscoreB.png');
+      return Image.asset(
+        'assets/img/nutriscoreB.png',
+        height: 150,
+        width: 150,
+      );
     }
     if (nutriscore == "c") {
-      return Image.asset('assets/img/nutriscoreC.png');
+      return Image.asset(
+        'assets/img/nutriscoreC.png',
+        height: 150,
+        width: 150,
+      );
     }
     if (nutriscore == "d") {
-      return Image.asset('assets/img/nutriscoreD.png');
+      return Image.asset(
+        'assets/img/nutriscoreD.png',
+        height: 150,
+        width: 150,
+      );
     }
     if (nutriscore == "e") {
-      return Image.asset('assets/img/nutriscoreE.png');
+      return Image.asset(
+        'assets/img/nutriscoreE.png',
+        height: 150,
+        width: 150,
+      );
     }
-    return Image.asset('assets/img/nutriscoreE.png');
+    return Image.asset(
+      'assets/img/nutriscoreE.png',
+      height: 150,
+      width: 150,
+    );
   }
 }
 
@@ -93,20 +119,28 @@ class IngredientRow extends StatelessWidget {
           Text("Empreinte carbone: " + ingredient.percent.toString() + "%"));
     }
     if (ingredient.vegan != null) {
-      elements.add(const Text("Ingrédient vegan"));
+      elements.add(Row(children: const [
+        Text("Ingrédient vegan"),
+        Icon(Icons.nature, color: Colors.green)
+      ]));
     }
     if (ingredient.vegetarian != null) {
-      elements.add(const Text("Ingrédient végétarien"));
+      elements.add(Row(children: const [
+        Text("Ingrédient végétarien", textAlign: TextAlign.center),
+        Icon(Icons.emoji_nature, color: Colors.green),
+      ]));
     }
-    return Row(
-      children: [
-        Container(
-          color: Colors.red,
-          child: Column(
-            children: elements,
-          ),
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        margin: EdgeInsets.all(10),
+        shape: RoundedRectangleBorder(
+            side: BorderSide(color: Colors.black, width: 3),
+            borderRadius: const BorderRadius.all(Radius.circular(15))),
+        child: Column(
+          children: elements,
+        ),
+      ),
     );
   }
 }
