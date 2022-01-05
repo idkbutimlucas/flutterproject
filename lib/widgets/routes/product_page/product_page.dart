@@ -19,8 +19,8 @@ class _ProductPageState extends State<ProductPage> {
     return Scaffold(
       appBar: AppBar(
         // titre de la page
-        title: const Text(
-          'Resultats',
+        title: Text(
+          'Produit',
           style: TextStyle(
             color: Colors.black,
             fontFamily: 'FiraSans',
@@ -32,12 +32,23 @@ class _ProductPageState extends State<ProductPage> {
       ),
       body: Center(
         child: Column(children: <Widget>[
-          Image.network(
-            args.imageUrl!,
-            width: 200,
-            height: 200,
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.network(
+                args.imageUrl!,
+                width: 200,
+                height: 200,
+                fit: BoxFit.fill,
+              ),
+            ),
           ),
-          Text(args.name!.toString()),
+          Text(
+            args.name!.toString(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontFamily: 'FiraSans', fontSize: 18),
+          ),
           Expanded(
             child: ListView.builder(
               itemCount: args.ingredients!.length,
@@ -118,27 +129,28 @@ class IngredientRow extends StatelessWidget {
       elements.add(
           Text("Empreinte carbone: " + ingredient.percent.toString() + "%"));
     }
-    if (ingredient.vegan != null) {
-      elements.add(Row(children: const [
-        Text("Ingrédient vegan"),
-        Icon(Icons.nature, color: Colors.green)
-      ]));
-    }
-    if (ingredient.vegetarian != null) {
-      elements.add(Row(children: const [
-        Text("Ingrédient végétarien", textAlign: TextAlign.center),
+    if (ingredient.vegan != null && ingredient.vegetarian != null) {
+      elements.add(Column(children: const [
+        Text("Aliment végétarien !", textAlign: TextAlign.center),
         Icon(Icons.emoji_nature, color: Colors.green),
       ]));
+    } else {
+      elements.add(Icon(Icons.emoji_nature, color: Colors.red));
     }
+
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: Card(
         margin: EdgeInsets.all(10),
         shape: RoundedRectangleBorder(
-            side: BorderSide(color: Colors.black, width: 3),
+            side:
+                BorderSide(color: Color.fromARGB(255, 247, 247, 247), width: 3),
             borderRadius: const BorderRadius.all(Radius.circular(15))),
-        child: Column(
-          children: elements,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: elements,
+          ),
         ),
       ),
     );
