@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/models/food.dart';
@@ -83,37 +81,37 @@ class ProductListPage extends ConsumerWidget {
                 ],
                 borderRadius: BorderRadius.circular(10)),
 
-        //-------------------------------------
-        // Affichage pour un produit
+            //-------------------------------------
+            // Affichage pour un produit
 
             child: Row(children: [
               Expanded(
                 child: Column(children: [
-                  
                   // Titre de l'article
-                  Text(f.products![position].name!,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 40, 39, 39),
-                          fontFamily: 'FiraSans',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
-                        ),
+                  Text(
+                    f.products![position].name!,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 40, 39, 39),
+                        fontFamily: 'FiraSans',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
 
-                  // Image de l'article      
+                  // Image de l'article
                   Image.network(
                     f.products![position].imageUrl!,
                     width: 200,
                     height: 158,
                     alignment: Alignment.center,
-                    fit: BoxFit.cover, 
+                    fit: BoxFit.cover,
                   ),
                 ]),
               )
-          ]),
-        ),
-      );
-    },
-  );
- }
+            ]),
+          ),
+        );
+      },
+    );
+  }
 }
