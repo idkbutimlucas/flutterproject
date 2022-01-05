@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch:Palette.white,
+        primarySwatch: Palette.white,
       ),
       home: const ProviderScope(
         child: Home(),
@@ -78,7 +78,7 @@ class TestDio extends ConsumerWidget {
 
   Widget _onLoading(loading) {
     return Container(
-      color: Colors.purple,
+      color: Colors.white,
       child: const Center(
         child: CircularProgressIndicator(),
       ),
