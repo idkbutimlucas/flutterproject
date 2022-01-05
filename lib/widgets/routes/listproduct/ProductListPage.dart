@@ -14,7 +14,7 @@ class ProductListPage extends ConsumerWidget {
       //----------------------------------------------------------------------
       // la APPBAR
       appBar: AppBar(
-        actionsIconTheme: IconThemeData(color: Colors.red),
+        
 
         // titre de la page
         title: const Text(
@@ -26,8 +26,9 @@ class ProductListPage extends ConsumerWidget {
             fontSize: 32,
           ),
           textAlign: TextAlign.center,
-        ),
-      ),
+        ),),
+
+       
 
       // ---------------------------------------------------------------------
       // Le corps de l'appli
@@ -99,6 +100,7 @@ class ProductListPage extends ConsumerWidget {
                     width: 200,
                     height: 170,
                     alignment: Alignment.center,
+                    
                   ),
                 ]),
               )

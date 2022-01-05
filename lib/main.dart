@@ -5,6 +5,24 @@ import 'package:iut2021/widgets/routes/home/home.dart';
 import 'package:iut2021/widgets/routes/listproduct/ProductListPage.dart';
 import 'package:iut2021/widgets/routes/product_page/product_page.dart';
 
+class Palette { 
+  static const MaterialColor white = const MaterialColor( 
+    0xFFFFFFFF,
+  const <int, Color>{
+    50: const Color(0xFFFFFFFF),
+    100: const Color(0xFFFFFFFF),
+    200: const Color(0xFFFFFFFF),
+    300: const Color(0xFFFFFFFF),
+    400: const Color(0xFFFFFFFF),
+    500: const Color(0xFFFFFFFF),
+    600: const Color(0xFFFFFFFF),
+    700: const Color(0xFFFFFFFF),
+    800: const Color(0xFFFFFFFF),
+    900: const Color(0xFFFFFFFF),
+  }
+  );
+
+}
 void main() {
   runApp(const MyApp());
 }
@@ -28,7 +46,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch:  Palette.white,
       ),
       home: const ProviderScope(
         child: ProductListPage(),
