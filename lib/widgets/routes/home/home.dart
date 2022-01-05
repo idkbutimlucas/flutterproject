@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:iut2021/providers/state_provider.dart';
+import 'package:iut2021/providers/stateProvider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

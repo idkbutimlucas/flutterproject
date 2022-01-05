@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:iut2021/providers/search_dio.provider.dart';
+import 'package:iut2021/providers/searchDio.provider.dart';
 import 'package:iut2021/widgets/routes/home/home.dart';
-import 'package:iut2021/widgets/routes/listproduct/ProductListPage.dart';
-import 'package:iut2021/widgets/routes/product_page/product_page.dart';
+import 'package:iut2021/widgets/routes/productListPage/productListPage.dart';
+import 'package:iut2021/widgets/routes/productPage/productPage.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));

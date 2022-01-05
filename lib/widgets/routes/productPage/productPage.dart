@@ -46,6 +46,7 @@ class _ProductPageState extends State<ProductPage> {
             textAlign: TextAlign.center,
             style: const TextStyle(fontFamily: 'FiraSans', fontSize: 18),
           ),
+          Store(store: args.stores!),
           Expanded(
             child: ListView.builder(
               itemCount: args.ingredients!.length,
@@ -58,6 +59,21 @@ class _ProductPageState extends State<ProductPage> {
         ]),
       ),
     );
+  }
+}
+
+class Store extends StatelessWidget {
+  const Store({Key? key, required this.store}) : super(key: key);
+
+  final String store;
+
+  @override
+  Widget build(BuildContext context) {
+    if (store.length >= 1) {
+      print(store.length);
+      return Text("Trouvable dans ce(s) magasin(s) : " + store);
+    }
+    return Text("Introuvable dans nos magasins");
   }
 }
 
@@ -128,7 +144,7 @@ class IngredientRow extends StatelessWidget {
     }
     if (ingredient.vegan != null && ingredient.vegetarian != null) {
       elements.add(Column(children: const [
-        Text("Aliment végétarien !", textAlign: TextAlign.center),
+        Text("Cet ingrédient est végétarien !", textAlign: TextAlign.center),
         Icon(Icons.emoji_nature, color: Colors.green),
       ]));
     } else {
