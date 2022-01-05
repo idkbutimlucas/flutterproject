@@ -108,13 +108,13 @@ class ProductListPage extends ConsumerWidget {
                       height: 155,
                       alignment: Alignment.center,
                       fit: BoxFit.cover,
-                   )
+                   ),
                   ),
-                ]),
-
-              )
-            ]),
-          ),
+                ),
+              ]),
+            ),
+          ]),
+          )
         );
       },
     );
