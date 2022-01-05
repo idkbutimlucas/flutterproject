@@ -60,8 +60,8 @@ class Palette {
 
 // -----------------------------------------------------------------------------------
 
-class TestDio extends ConsumerWidget {
-  const TestDio({Key? key}) : super(key: key);
+class Dio extends ConsumerWidget {
+  const Dio({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
