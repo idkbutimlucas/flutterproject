@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/models/food.dart';
 import 'package:iut2021/models/products.dart';
 
-import '../../../providers/search_dio.provider.dart';
+import '../../../providers/searchDio.provider.dart';
 
 class ProductListPage extends ConsumerWidget {
   const ProductListPage({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class ProductListPage extends ConsumerWidget {
       ),
 
 //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-  // ---------------------------------------------------------------------
+      // ---------------------------------------------------------------------
       // Le corps de l'appli
       body: ref
           .watch(searchDioProvider)
@@ -60,62 +60,63 @@ class ProductListPage extends ConsumerWidget {
       itemCount: f.products!.length,
       itemBuilder: (context, position) {
         return GestureDetector(
-          onTap: () {
-            Products p = f.products![position];
-            Navigator.pushNamed(context, '/product_page', arguments: p);
-          },
-          child: Container(
-            width: 80,
-            height: 270,
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(20),
-            decoration: new BoxDecoration(
-                color: Colors.white,
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: Color.fromARGB(126, 0, 0, 0),
-                    offset: Offset(0.5, 0.5),
-                    blurRadius: 30.0,
-                  )
-                ],
-                borderRadius: BorderRadius.circular(10)),
+            onTap: () {
+              Products p = f.products![position];
+              Navigator.pushNamed(context, '/product_page', arguments: p);
+            },
+            child: Container(
+              width: 80,
+              height: 270,
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(20),
+              margin: EdgeInsets.all(20),
+              decoration: new BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: Color.fromARGB(126, 0, 0, 0),
+                      offset: Offset(0.5, 0.5),
+                      blurRadius: 30.0,
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(10)),
 
-            //-------------------------------------
-            // Affichage pour un produit
+              //-------------------------------------
+              // Affichage pour un produit
 
-            child: Row(children: [
-              Expanded(
-                child: Column(children: [
-                  // Titre de l'article
+              child: Row(children: [
+                Expanded(
+                  child: Column(children: [
+                    // Titre de l'article
 
-                  Text(f.products![position].name!,
+                    Text(
+                      f.products![position].name!,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Color.fromARGB(255, 40, 39, 39),
                           fontFamily: 'FiraSans',
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
-                        ),
+                    ),
 
-                 // Image de l'article
-                Padding(padding: EdgeInsets.all(9.0),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.network(
-                      f.products![position].imageUrl!,
-                      width: 200,
-                      height: 155,
-                      alignment: Alignment.center,
-                      fit: BoxFit.cover,
-                   ),
-                  ),
+                    // Image de l'article
+                    Padding(
+                      padding: EdgeInsets.all(9.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          f.products![position].imageUrl!,
+                          width: 200,
+                          height: 155,
+                          alignment: Alignment.center,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ]),
                 ),
               ]),
-            ),
-          ]),
-          )
-        );
+            ));
       },
     );
   }
