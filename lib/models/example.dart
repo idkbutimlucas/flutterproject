@@ -10,10 +10,10 @@ class Example {
   final String? usernane;
   final bool? exist;
 
-  Example(this.usernane,this.exist);
+  Example(this.usernane, this.exist);
 
-  factory Example.fromJson(Map<String, dynamic> json) => _$ExampleFromJson(json);
+  factory Example.fromJson(Map<String, dynamic> json) =>
+      _$ExampleFromJson(json);
 
   Map<String, dynamic> toJson() => _$ExampleToJson(this);
-
 }
