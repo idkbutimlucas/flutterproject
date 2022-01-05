@@ -51,6 +51,7 @@ class TestDio extends ConsumerWidget {
   }
 
   Widget _onError(error) {
+    print(error.toString());
     return Container(
       color: Colors.red,
     );
