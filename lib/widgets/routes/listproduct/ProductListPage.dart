@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/models/food.dart';
@@ -83,14 +81,14 @@ class ProductListPage extends ConsumerWidget {
                 ],
                 borderRadius: BorderRadius.circular(10)),
 
-        //-------------------------------------
-        // Affichage pour un produit
+            //-------------------------------------
+            // Affichage pour un produit
 
             child: Row(children: [
               Expanded( 
                 child: Column(children: [
-                  
                   // Titre de l'article
+
                   Text(f.products![position].name!,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -114,11 +112,12 @@ class ProductListPage extends ConsumerWidget {
                   ),
                   ),
                 ]),
-              ),
-            ])
-        ),);
-      
-    },
-  );
- }
+ 
+              )
+            ]),
+          ),
+        );
+      },
+    );
+  }
 }
