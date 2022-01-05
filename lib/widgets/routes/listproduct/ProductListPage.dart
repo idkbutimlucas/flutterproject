@@ -29,8 +29,8 @@ class ProductListPage extends ConsumerWidget {
         ),
       ),
 
-// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-      // ---------------------------------------------------------------------
+//|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+  // ---------------------------------------------------------------------
       // Le corps de l'appli
       body: ref
           .watch(searchDioProvider)
@@ -53,7 +53,7 @@ class ProductListPage extends ConsumerWidget {
     );
   }
 
-// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   // ------------------------------------------------------------------------
   // La liste des ingrédients
   Widget _onData(data) {
@@ -99,14 +99,17 @@ class ProductListPage extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                         ),
-
-                  // Image de l'article      
-                  Image.network(
-                    f.products![position].imageUrl!,
-                    width: 200,
-                    height: 158,
-                    alignment: Alignment.center,
-                    fit: BoxFit.cover, 
+    
+                 // Image de l'article
+                ClipRRect( 
+                    borderRadius: BorderRadius.circular(8.0),     
+                    child: Image.network(
+                      f.products![position].imageUrl!,
+                      width: 200,
+                      height: 158,
+                      alignment: Alignment.center,
+                      fit: BoxFit.cover, 
+                   )
                   ),
                 ]),
               )
