@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:iut2021/providers/search_dio.provider.dart';
+import 'package:iut2021/providers/searchDio.provider.dart';
 import 'package:iut2021/widgets/routes/home/home.dart';
-import 'package:iut2021/widgets/routes/listproduct/ProductListPage.dart';
-import 'package:iut2021/widgets/routes/product_page/product_page.dart';
+import 'package:iut2021/widgets/routes/productListPage/productListPage.dart';
+import 'package:iut2021/widgets/routes/productPage/productPage.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -19,17 +19,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'flutter test',
       theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          primarySwatch: Palette.white,
-          ),
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+        primarySwatch: Palette.white,
+      ),
       home: const ProviderScope(
         child: Home(),
       ),
@@ -60,8 +60,8 @@ class Palette {
 
 // -----------------------------------------------------------------------------------
 
-class TestDio extends ConsumerWidget {
-  const TestDio({Key? key}) : super(key: key);
+class Dio extends ConsumerWidget {
+  const Dio({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -78,7 +78,7 @@ class TestDio extends ConsumerWidget {
 
   Widget _onLoading(loading) {
     return Container(
-      color: Colors.purple,
+      color: Colors.white,
       child: const Center(
         child: CircularProgressIndicator(),
       ),

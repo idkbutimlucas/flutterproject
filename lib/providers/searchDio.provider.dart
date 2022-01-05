@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/models/food.dart';
 import 'package:iut2021/providers/dio.dart';
-import 'package:iut2021/providers/state_provider.dart';
+import 'package:iut2021/providers/stateProvider.dart';
 
 final searchDioProvider = FutureProvider<Food?>((ref) async {
   final Dio dio = ref.read(dioProvider);
