@@ -9,7 +9,7 @@ part 'ingredients.g.dart';
 class Ingredients {
   String? id;
   @JsonKey(name: "percent_estimate")
-  double? percent;
+  Object? percent;
   String? text;
   String? vegan;
   String? vegetarian;

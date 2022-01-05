@@ -46,6 +46,7 @@ final searchDioProvider = FutureProvider<Food?>((ref) async {
     final Response response = await dio.get(url);
     return Food.fromJson(response.data);
   } catch (e) {
+    print(e.toString());
     return Future.error(e);
   }
 });

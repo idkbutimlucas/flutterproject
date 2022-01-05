@@ -8,7 +8,7 @@ part of 'ingredients.dart';
 
 Ingredients _$IngredientsFromJson(Map<String, dynamic> json) => Ingredients(
       json['id'] as String?,
-      (json['percent_estimate'] as num?)?.toDouble(),
+      json['percent_estimate'] as Object?,
       json['text'] as String?,
       json['vegan'] as String?,
       json['vegetarian'] as String?,

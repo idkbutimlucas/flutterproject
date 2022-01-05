@@ -77,45 +77,41 @@ class ProductListPage extends ConsumerWidget {
             height: 250,
             alignment: Alignment.center,
             padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(20),            
+            margin: EdgeInsets.all(20),
             decoration: new BoxDecoration(
-              color: Colors.white,
-              boxShadow: <BoxShadow>[
-                BoxShadow(
-                  color: Color.fromARGB(126, 0, 0, 0),
-                  offset: Offset(0.5, 0.5),
-                  blurRadius: 30.0,)],
-              borderRadius: BorderRadius.circular(10)),
-              
+                color: Colors.white,
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: Color.fromARGB(126, 0, 0, 0),
+                    offset: Offset(0.5, 0.5),
+                    blurRadius: 30.0,
+                  )
+                ],
+                borderRadius: BorderRadius.circular(10)),
 
-          //-------------------------------------
-          // Affichage pour un produit
-            
-              child: Row(
-                
-                children: [Expanded(
-                   child: Column(
-                     children: [Text(
-                      f.products![position].name!,
+            //-------------------------------------
+            // Affichage pour un produit
+
+            child: Row(children: [
+              Expanded(
+                child: Column(children: [
+                  Text(f.products![position].name!,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Color.fromARGB(255, 40, 39, 39),
-                      fontFamily: 'FiraSans',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16)
-                      ),
-
-                    Image.network(
-                      f.products![position].imageUrl!,
-                      width: 200,
-                      height: 170,
-                      alignment: Alignment.center,
-                    ),
-                ]  
-                ),
-                )]
-              
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 40, 39, 39),
+                          fontFamily: 'FiraSans',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16)),
+                  Image.network(
+                    f.products![position].imageUrl!,
+                    width: 200,
+                    height: 170,
+                    alignment: Alignment.center,
+                  ),
+                ]),
+              )
+            ]),
           ),
-        ),
         );
       },
     );
