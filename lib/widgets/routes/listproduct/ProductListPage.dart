@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iut2021/models/food.dart';
@@ -14,8 +16,6 @@ class ProductListPage extends ConsumerWidget {
       //----------------------------------------------------------------------
       // la APPBAR
       appBar: AppBar(
-        
-
         // titre de la page
         title: const Text(
           'Resultats',
@@ -26,10 +26,10 @@ class ProductListPage extends ConsumerWidget {
             fontSize: 32,
           ),
           textAlign: TextAlign.center,
-        ),),
+        ),
+      ),
 
-       
-
+// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
       // ---------------------------------------------------------------------
       // Le corps de l'appli
       body: ref
@@ -53,6 +53,7 @@ class ProductListPage extends ConsumerWidget {
     );
   }
 
+// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   // ------------------------------------------------------------------------
   // La liste des ingrédients
   Widget _onData(data) {
@@ -67,7 +68,7 @@ class ProductListPage extends ConsumerWidget {
           },
           child: Container(
             width: 80,
-            height: 250,
+            height: 258,
             alignment: Alignment.center,
             padding: EdgeInsets.all(20),
             margin: EdgeInsets.all(20),
@@ -82,32 +83,37 @@ class ProductListPage extends ConsumerWidget {
                 ],
                 borderRadius: BorderRadius.circular(10)),
 
-            //-------------------------------------
-            // Affichage pour un produit
+        //-------------------------------------
+        // Affichage pour un produit
 
             child: Row(children: [
               Expanded(
                 child: Column(children: [
+                  
+                  // Titre de l'article
                   Text(f.products![position].name!,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Color.fromARGB(255, 40, 39, 39),
                           fontFamily: 'FiraSans',
                           fontWeight: FontWeight.bold,
-                          fontSize: 16)),
+                          fontSize: 16),
+                        ),
+
+                  // Image de l'article      
                   Image.network(
                     f.products![position].imageUrl!,
                     width: 200,
-                    height: 170,
+                    height: 158,
                     alignment: Alignment.center,
-                    
+                    fit: BoxFit.cover, 
                   ),
                 ]),
               )
-            ]),
-          ),
-        );
-      },
-    );
-  }
+          ]),
+        ),
+      );
+    },
+  );
+ }
 }
